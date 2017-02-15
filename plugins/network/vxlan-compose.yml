@@ -1,0 +1,40 @@
+
+version: '2'
+
+services:
+  openvswitch:
+    image: omega/openvswitch:2.3.2
+    network_mode: host
+    privileged: true
+    restart: always
+    volumes:
+      - /var/run/openvswitch/:/usr/local/var/run/openvswitch
+      - /var/run/:/etc/openvswitch
+    environment:
+      - "affinity:container!=*openvswitch*"
+    labels:
+      - com.github.omega.labels.system=true
+      - com.github.omega.container.plugin=network
+
+
+  vxlan:
+    image: omega/network-plugins:1.4.0
+    command: vxlan
+    network_mode: host
+    privileged: true
+    pid : host
+    environment:
+      - "affinity:container!=*vxlan*"
+      - NP_CLUSTER_STORE=${ZK_URL}
+      - NP_ETH=${DEFAULT_DEV}
+    restart: always
+    volumes:
+      - /run/docker/plugins:/run/docker/plugins
+      - /var/run/docker/netns/:/var/run/docker/netns
+      - /var/run/openvswitch/:/usr/local/var/run/openvswitch
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /lib/modules:/lib/modules
+    labels:
+      - com.github.omega.labels.system=true
+      - com.github.omega.container.plugin=network
+
