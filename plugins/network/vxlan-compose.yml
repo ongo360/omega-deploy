@@ -9,7 +9,6 @@ services:
     restart: always
     volumes:
       - /var/run/openvswitch/:/usr/local/var/run/openvswitch
-      - /var/run/:/etc/openvswitch
     environment:
       - "affinity:container!=*openvswitch*"
     labels:
