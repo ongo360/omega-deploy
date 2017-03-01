@@ -3,7 +3,7 @@ version: '2'
 
 services:
   openvswitch:
-    image: omega/openvswitch:2.3.2
+    image: registry.cn-hangzhou.aliyuncs.com/omega-reg/openvswitch:2.3.2
     network_mode: host
     privileged: true
     restart: always
@@ -18,7 +18,7 @@ services:
 
 
   vxlan:
-    image: omega/network-plugins:1.4.0
+    image: registry.cn-hangzhou.aliyuncs.com/omega-reg/network-plugins:1.0.0
     command: vxlan
     network_mode: host
     privileged: true
