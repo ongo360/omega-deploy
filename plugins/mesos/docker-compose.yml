@@ -20,7 +20,7 @@ services:
       -  MESOS_CONTAINERIZERS=docker,mesos   
       -  MESOS_LOG_DIR=/var/log/mesos   
       -  MESOS_WORK_DIR=/var/tmp/mesos 
-      -  MESOS_HOSTNAME=kvm1   
+#      -  MESOS_HOSTNAME=kvm1   
   master:
       image: mesosphere/mesos-master:1.1.1-rc2
       network_mode: host
@@ -36,3 +36,9 @@ services:
        - MESOS_REGISTRY=in_memory   
        - MESOS_LOG_DIR=/var/log/mesos   
        - MESOS_WORK_DIR=/var/tmp/mesos   
+  marathon:
+      image: mesosphere/marathon:v1.4.1
+      network_mode: host
+      privileged: true
+      restart: always
+      command: ./bin/start --master ${ZK_URL}/mesos --zk ${ZK_URL}/marathon
