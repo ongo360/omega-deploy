@@ -1,0 +1,38 @@
+version: '2'
+services:
+  slave:
+    image: mesosphere/mesos-slave:1.1.1-rc2
+    network_mode: host
+    privileged: true
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/usr/local/var/docker.sock
+      - /sys/fs/cgroup:/sys/fs/cgroup
+      - log/mesos-slave:/var/log/mesos   
+      - tmp/mesos-slave:/var/tmp/mesos   
+      - /usr/bin/docker:/usr/bin/docker  
+      - /cgroup:/cgroup  
+    environment:
+      - "affinity:container!=*slave*"
+      -  MESOS_PORT=5051   
+      -  MESOS_MASTER=${ZK_URL}/mesos   
+      -  MESOS_SWITCH_USER=0   
+      -  MESOS_CONTAINERIZERS=docker,mesos   
+      -  MESOS_LOG_DIR=/var/log/mesos   
+      -  MESOS_WORK_DIR=/var/tmp/mesos 
+      -  MESOS_HOSTNAME=kvm1   
+  master:
+      image: mesosphere/mesos-master:1.1.1-rc2
+      network_mode: host
+      privileged: true
+      restart: always
+      volumes:
+       - log/mesos-master:/var/log/mesos
+       - tmp/mesos-master:/var/tmp/mesos
+      environment:
+       - MESOS_PORT=5050   
+       - MESOS_ZK=${ZK_URL}/mesos   
+       - MESOS_QUORUM=1   
+       - MESOS_REGISTRY=in_memory   
+       - MESOS_LOG_DIR=/var/log/mesos   
+       - MESOS_WORK_DIR=/var/tmp/mesos   
