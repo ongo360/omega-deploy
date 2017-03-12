@@ -9,7 +9,7 @@ fi
 
 
 STORAGE=${STORAGE:-"overlay"}
-DEFAULT_DEV=${DEFAULT_DEV:-"eth1"}
+DEFAULT_DEV=${DEFAULT_DEV:-"eth0"}
 DEFAULT_IP=`ifconfig ${DEFAULT_DEV} | grep inet | awk '{{print $2}}'`
 
 
@@ -30,8 +30,7 @@ docker run -ti --rm -v $(pwd):$(pwd) \
     -e ZK_URL=${DISCOVERY_URL} \
     -e DEFAULT_DEV=${DEFAULT_DEV} \
     docker/compose:1.9.0 \
-    -f plugins/network/vxlan-compose.yml \
-    -p network \
+    -f vxlan-compose.yml \
     up -d
 
 
