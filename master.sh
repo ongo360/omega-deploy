@@ -31,7 +31,7 @@ source ~/.bashrc
 
 docker run -ti --rm -v $(pwd):$(pwd) \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -w $(pwd)/plugins/network \
+    -w $(pwd)/plugins/swarm/network \
     -e DOCKER_HOST=unix:///var/run/docker.sock \
     -e ZK_URL=${DISCOVERY_URL} \
     -e DEFAULT_DEV=${DEFAULT_DEV} \

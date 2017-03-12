@@ -4,18 +4,18 @@
 
 
 STORAGE=${STORAGE:-"overlay"}
-DEFAULT_DEV=${DEFAULT_DEV:-"eth1"}
+DEFAULT_DEV=${DEFAULT_DEV:-"eth0"}
 REGISTRY_MIRROR=${REGISTRY_MIRROR:-"https://rmw18jx4.mirror.aliyuncs.com"}
-MTU=${MTU:-1450}
+MTU=${MTU:-1500}
 DEFAULT_IP=`ifconfig ${DEFAULT_DEV} | grep inet | awk '{{print $2}}'`
 
 modprobe overlay
 modprobe openvswitch
 
 rpm -U  ./binary/omega-docker-1.11.1-*.x86_64.rpm
-DISCOVERY_URL=${DISCOVERY_URL:-"zk://localhost:2181/default"}
+DISCOVERY_URL=${DISCOVERY_URL:-"zk://${DEFAULT_IP}:2181/default"}
 
-echo "DOCKER_OPTS='--registry-mirror=https://rmw18jx4.mirror.aliyuncs.com  -s ${STORAGE} --mtu=${MTU} --cluster-store=${DISCOVERY_URL} --cluster-advertise=${DEFAULT_DEV}:2376'" > /etc/default/docker
+echo "DOCKER_OPTS='--registry-mirror=${REGISTRY_MIRROR}  -s ${STORAGE} --mtu=${MTU} --cluster-store=${DISCOVERY_URL} --cluster-advertise=${DEFAULT_DEV}:2376'" > /etc/default/docker
 systemctl daemon-reload
 systemctl restart docker
 SECONDS=0

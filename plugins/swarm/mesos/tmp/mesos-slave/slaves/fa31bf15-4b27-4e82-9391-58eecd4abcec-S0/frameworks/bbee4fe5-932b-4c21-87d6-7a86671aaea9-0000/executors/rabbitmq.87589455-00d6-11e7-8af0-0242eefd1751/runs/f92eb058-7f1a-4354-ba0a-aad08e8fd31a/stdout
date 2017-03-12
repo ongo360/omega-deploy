@@ -1,0 +1,270 @@
+--container="mesos-fa31bf15-4b27-4e82-9391-58eecd4abcec-S0.f92eb058-7f1a-4354-ba0a-aad08e8fd31a" --docker="docker" --docker_socket="/var/run/docker.sock" --help="false" --initialize_driver_logging="true" --launcher_dir="/usr/libexec/mesos" --logbufsecs="0" --logging_level="INFO" --mapped_directory="/mnt/mesos/sandbox" --quiet="false" --sandbox_directory="/var/tmp/mesos/slaves/fa31bf15-4b27-4e82-9391-58eecd4abcec-S0/frameworks/bbee4fe5-932b-4c21-87d6-7a86671aaea9-0000/executors/rabbitmq.87589455-00d6-11e7-8af0-0242eefd1751/runs/f92eb058-7f1a-4354-ba0a-aad08e8fd31a" --stop_timeout="0ns"
+--container="mesos-fa31bf15-4b27-4e82-9391-58eecd4abcec-S0.f92eb058-7f1a-4354-ba0a-aad08e8fd31a" --docker="docker" --docker_socket="/var/run/docker.sock" --help="false" --initialize_driver_logging="true" --launcher_dir="/usr/libexec/mesos" --logbufsecs="0" --logging_level="INFO" --mapped_directory="/mnt/mesos/sandbox" --quiet="false" --sandbox_directory="/var/tmp/mesos/slaves/fa31bf15-4b27-4e82-9391-58eecd4abcec-S0/frameworks/bbee4fe5-932b-4c21-87d6-7a86671aaea9-0000/executors/rabbitmq.87589455-00d6-11e7-8af0-0242eefd1751/runs/f92eb058-7f1a-4354-ba0a-aad08e8fd31a" --stop_timeout="0ns"
+Registered docker executor on kvm1
+Starting task rabbitmq.87589455-00d6-11e7-8af0-0242eefd1751
+
+              RabbitMQ 3.6.6. Copyright (C) 2007-2016 Pivotal Software, Inc.
+  ##  ##      Licensed under the MPL.  See http://www.rabbitmq.com/
+  ##  ##
+  ##########  Logs: tty
+  ######  ##        tty
+  ##########
+              Starting broker...
+
+=INFO REPORT==== 4-Mar-2017::12:32:05 ===
+Starting RabbitMQ 3.6.6 on Erlang 19.2
+Copyright (C) 2007-2016 Pivotal Software, Inc.
+Licensed under the MPL.  See http://www.rabbitmq.com/
+
+=INFO REPORT==== 4-Mar-2017::12:32:05 ===
+node           : rabbit@d51008dfc26e
+home dir       : /var/lib/rabbitmq
+config file(s) : /etc/rabbitmq/rabbitmq.config
+cookie hash    : +8HbWvUZwNSi2auAunSZuw==
+log            : tty
+sasl log       : tty
+database dir   : /var/lib/rabbitmq/mnesia/rabbit@d51008dfc26e
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Memory limit set to 1516MB of 3791MB total.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Disk free limit set to 50MB
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Limiting to approx 1048476 file handles (943626 sockets)
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+FHC read buffering:  OFF
+FHC write buffering: ON
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Database directory at /var/lib/rabbitmq/mnesia/rabbit@d51008dfc26e is empty. Initialising from scratch...
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+    application: mnesia
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Priority queues enabled, real BQ is rabbit_variable_queue
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Starting rabbit_node_monitor
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Management plugin: using rates mode 'basic'
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+msg_store_transient: using rabbit_msg_store_ets_index to provide index
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+msg_store_persistent: using rabbit_msg_store_ets_index to provide index
+
+=WARNING REPORT==== 4-Mar-2017::12:32:09 ===
+msg_store_persistent: rebuilding indices from scratch
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Adding vhost 'ongo360_vhost'
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Creating user 'ongo360'
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Setting user tags for user 'ongo360' to [administrator]
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Setting permissions for 'ongo360' in 'ongo360_vhost' to '.*', '.*', '.*'
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+started TCP Listener on [::]:5672
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Management plugin started. Port: 15672
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics event collector started.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics channel stats collector started.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics queue stats collector started.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics database started.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_stats_deliver_get with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_stats_queue_msg_counts with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_stats_queue_msg_rates with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_stats_process_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_queue_exchange_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_vhost_stats_deliver_get with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_vhost_stats_fine_stats with interval 5000.
+ completed with 6 plugins.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Server startup complete; 6 plugins started.
+ * rabbitmq_management
+ * rabbitmq_web_dispatch
+ * rabbitmq_management_agent
+ * webmachine
+ * mochiweb
+ * amqp_client
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_vhost_stats_queue_msg_rates with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_vhost_stats_queue_msg_counts with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_vhost_stats_coarse_conn_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_queue_stats_deliver_get with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_queue_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_queue_stats_queue_msg_counts with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_stats_deliver_get with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_stats_queue_msg_counts with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_stats_process_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_exchange_stats_deliver_get with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_channel_exchange_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_exchange_stats_fine_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_node_stats_coarse_node_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_node_node_stats_coarse_node_node_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_connection_stats_coarse_conn_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table aggr_connection_stats_process_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table channel_stats with interval 5000.
+
+=INFO REPORT==== 4-Mar-2017::12:32:09 ===
+Statistics garbage collector started for table connection_stats with interval 5000.
+
+=WARNING REPORT==== 4-Mar-2017::13:13:18 ===
+HTTP access denied: user 'ongo360' - invalid credentials
+
+=ERROR REPORT==== 4-Mar-2017::13:13:18 ===
+webmachine error: path="/api/exchanges/ongo360_vhost/task"
+"Unauthorized"
+
+=WARNING REPORT==== 4-Mar-2017::13:14:22 ===
+HTTP access denied: user 'ongo360' - invalid credentials
+
+=ERROR REPORT==== 4-Mar-2017::13:14:22 ===
+webmachine error: path="/api/exchanges/ongo360_vhost/task"
+"Unauthorized"
+
+=WARNING REPORT==== 4-Mar-2017::13:28:12 ===
+HTTP access denied: user 'ongo360' - invalid credentials
+
+=ERROR REPORT==== 4-Mar-2017::13:28:12 ===
+webmachine error: path="/api/exchanges/ongo360_vhost/task"
+"Unauthorized"
+
+=INFO REPORT==== 4-Mar-2017::13:33:19 ===
+accepting AMQP connection <0.30434.0> (192.168.82.1:40768 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 4-Mar-2017::13:55:46 ===
+closing AMQP connection <0.30434.0> (192.168.82.1:40768 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=INFO REPORT==== 4-Mar-2017::13:59:07 ===
+accepting AMQP connection <0.10418.1> (192.168.82.4:56148 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 4-Mar-2017::14:03:14 ===
+closing AMQP connection <0.10418.1> (192.168.82.4:56148 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=INFO REPORT==== 4-Mar-2017::14:40:14 ===
+accepting AMQP connection <0.30197.1> (192.168.82.1:60474 -> 192.168.82.3:5672)
+
+=INFO REPORT==== 4-Mar-2017::14:44:22 ===
+accepting AMQP connection <0.32202.1> (192.168.82.1:42782 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 4-Mar-2017::14:45:28 ===
+closing AMQP connection <0.30197.1> (192.168.82.1:60474 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=INFO REPORT==== 4-Mar-2017::14:53:08 ===
+accepting AMQP connection <0.3679.2> (192.168.82.1:39272 -> 192.168.82.3:5672)
+
+=INFO REPORT==== 4-Mar-2017::14:54:26 ===
+accepting AMQP connection <0.4329.2> (192.168.82.2:50336 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 4-Mar-2017::14:58:14 ===
+closing AMQP connection <0.3679.2> (192.168.82.1:39272 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=WARNING REPORT==== 4-Mar-2017::14:58:14 ===
+closing AMQP connection <0.4329.2> (192.168.82.2:50336 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=WARNING REPORT==== 6-Mar-2017::09:05:18 ===
+closing AMQP connection <0.32202.1> (192.168.82.1:42782 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=INFO REPORT==== 6-Mar-2017::09:07:21 ===
+accepting AMQP connection <0.11349.39> (192.168.82.1:53644 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 6-Mar-2017::09:11:28 ===
+closing AMQP connection <0.11349.39> (192.168.82.1:53644 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=INFO REPORT==== 6-Mar-2017::09:15:02 ===
+accepting AMQP connection <0.15086.39> (192.168.82.1:35946 -> 192.168.82.3:5672)
+
+=INFO REPORT==== 6-Mar-2017::09:15:07 ===
+accepting AMQP connection <0.15142.39> (192.168.82.2:32940 -> 192.168.82.3:5672)
+
+=WARNING REPORT==== 8-Mar-2017::13:54:31 ===
+closing AMQP connection <0.15086.39> (192.168.82.1:35946 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
+
+=WARNING REPORT==== 8-Mar-2017::13:54:31 ===
+closing AMQP connection <0.15142.39> (192.168.82.2:32940 -> 192.168.82.3:5672):
+client unexpectedly closed TCP connection
