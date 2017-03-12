@@ -7,4 +7,4 @@ docker run -ti --rm \
    -e NETWORK=${NETWORK} \
    -e SWARM_URL=${SWARM_URL} \
    docker/compose:1.9.0   \
-   up
+   up -d
