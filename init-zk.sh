@@ -29,8 +29,8 @@ docker -H unix:///var/run/bootstrap.sock run -d \
     --name zk \
     --restart=always \
     --net=host  \
-    -v /var/lib/zookeeper/data:/data \
-    -v /var/lib/zookeeper/datalog:/datalog \
+    -v /var/lib/zookeeper/data:/var/lib/zookeeper/data \
+    -v /var/lib/zookeeper/datalog:/var/lib/zookeeper/datalog \
     zookeeper:3.4.9
 
 

@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
 
-STORAGE=${STORAGE:-"overlay"}
-DEFAULT_DEV=${DEFAULT_DEV:-"eth1"}
-REGISTRY_MIRROR=${REGISTRY_MIRROR:-"https://rmw18jx4.mirror.aliyuncs.com"}
-MTU=${MTU:-1450}
-
-DISCOVERY_URL=${DISCOVERY_URL:-"zk://localhost:2181/default"}
+DEFAULT_DEV=${DEFAULT_DEV:-"eth0"}
 DEFAULT_IP=`ifconfig ${DEFAULT_DEV} | grep inet | awk '{{print $2}}'`
+DISCOVERY_URL=${DISCOVERY_URL:-"zk://${DEFAULT_IP}:2181/default"}
 
 
 

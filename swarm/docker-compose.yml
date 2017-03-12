@@ -2,7 +2,7 @@ version: '2'
 
 services:
  master:
-  image: omega/swarm:1.2.4
+  image: registry.cn-hangzhou.aliyuncs.com/omega-reg/swarm:1.2.4
   restart: always
   network_mode: host
   pid: host
@@ -10,7 +10,7 @@ services:
    - com.github.omega.labels.system=true
   command: manage --host 0.0.0.0:2375 ${DISCOVERY_URL}
  agent:
-  image: omega/swarm:1.2.4
+  image: registry.cn-hangzhou.aliyuncs.com/omega-reg/swarm:1.2.4
   restart: always
   network_mode: host
   pid: host
@@ -18,7 +18,7 @@ services:
    - com.github.omega.labels.system=true
   command: join --addr ${DOCKER_IP}:2376  ${DISCOVERY_URL}
  api:
-  image: omega/api:1.0.0
+  image: registry.cn-hangzhou.aliyuncs.com/omega-reg/api:1.0.0
   restart: always
   network_mode: host
   pid: host
