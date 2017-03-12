@@ -2,14 +2,16 @@ version: '2'
 services:
   rethinkdb:
     image: rethinkdb
-    network_mode: bridge
     restart: always
   controller:
     image: shipyard/shipyard
     restart: always
-    network_mode: bridge
     links:
       - rethinkdb:rethinkdb
     ports:
       - 8080
-    command: server -d ${SWARM_URL}
+    command: server -d tcp://${SWARM_URL}
+networks:
+  default:
+    external:
+      name: ${NETWORK}
