@@ -1,0 +1,13 @@
+version: '2'
+services:
+  rethinkdb:
+    image: rethinkdb
+    restart: always
+    network_mode: ${NETWORK}
+  controller:
+    image: shipyard
+    restart: always
+    network_mode: ${NETWORK}
+    ports:
+      - 8080
+    command: server -d ${SWARM_URL}
