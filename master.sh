@@ -35,3 +35,6 @@ docker run -ti --rm -v $(pwd):$(pwd) \
     -f vxlan-compose.yml \
     -p network \
     up -d
+
+
+echo "omega api starting at ${DEFAULT_IP}:8080 ......"
