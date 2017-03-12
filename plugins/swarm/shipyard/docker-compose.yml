@@ -8,6 +8,8 @@ services:
     image: shipyard
     restart: always
     network_mode: ${NETWORK}
+    links:
+      - rethinkdb:rethinkdb
     ports:
       - 8080
     command: server -d ${SWARM_URL}
