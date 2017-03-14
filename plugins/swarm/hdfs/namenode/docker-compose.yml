@@ -1,31 +1,31 @@
 version: '2'
 services:
- holder:
+ namenode-holder:
   image: centos:6.7
   restart: always
 #  container_name: holder
   environment:
    - TERM=xterm
   networks: 
-    vxlan110:
+    mynetwork:
       aliases:
        - namenode
   ports:
    - 50070:50070
    - 8020:8020
   command: top -b -d 60
- namenode:
+ hdfs-namenode:
   image: uhopper/hadoop-namenode
-  network_mode: service:holder
+  network_mode: service:namenode-holder
   restart: always
   depends_on:
-   - holder
+   - namenode-holder
   volumes:
    - /hadoop/dfs/name:/hadoop/dfs/name
   environment:
    - "CLUSTER_NAME=myhadoop"
-   - "affinity:container!=*namenode*"
+   - "affinity:container!=*hdfs-namenode*"
 networks:
- vxlan110:
+ mynetwork:
   external: 
-   name: vxlan110 
+   name: ${NETWORK} 

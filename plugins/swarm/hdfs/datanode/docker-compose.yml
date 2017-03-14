@@ -1,23 +1,25 @@
 version: '2'
 services:
- holder:
+ datanode-holder:
   image: centos:6.7
   restart: always
-  networks:
-   - vxlan110
   environment:
    - TERM=xterm
   command: top -b -d 60
- datanode:
+  environment:
+   - "affinity:container!=*_datanode-holder_*"
+ hdfs-datanode:
   image: uhopper/hadoop-datanode
-  network_mode: service:holder
+  network_mode: service:datanode-holder
+  depends_on: 
+   - datanode-holder
   restart: always
   volumes:
    - /hadoop/dfs/data:/hadoop/dfs/data
   environment:
-   - "affinity:container!=*datanode*"
+   - "affinity:container!=*_hdfs-datanode_*"
    - "CORE_CONF_fs_defaultFS=hdfs://namenode:8020"
 networks:
- vxlan110:
+ default:
   external: 
-   name: vxlan110 
+   name: ${NETWORK} 
