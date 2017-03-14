@@ -1,0 +1,50 @@
+version: '2'
+services:
+ namenode1:
+  image: uhopper/hadoop-namenode
+  hostname: namenode1
+  container_name: namenode1
+  domainname: hadoop
+  networks:
+    vxlan110:
+      aliases:
+       - namenode
+  restart: always
+  ports:
+   - 50070:50070
+   - 8020:8020
+  volumes:
+   - /hadoop/dfs/name:/hadoop/dfs/name
+  environment:
+   - "CLUSTER_NAME=myhadoop"
+   - "affinity:container!=*namenode*"
+ datanode1:
+  image: uhopper/hadoop-datanode
+  hostname: datanode1
+  container_name: datanode1
+  domainname: hadoop
+  networks:
+   -  vxlan110 
+  restart: always
+  volumes:
+   - /hadoop/dfs/data:/hadoop/dfs/data
+  environment:
+   - "affinity:container!=*datanode*"
+   - "CORE_CONF_fs_defaultFS=hdfs://namenode:8020"
+ datanode2:
+  image: uhopper/hadoop-datanode
+  hostname: datanode2
+  container_name: datanode2
+  domainname: hadoop
+  networks:
+   -  vxlan110 
+  restart: always
+  volumes:
+   - /hadoop/dfs/data:/hadoop/dfs/data
+  environment:
+   - "affinity:container!=*datanode*"
+   - "CORE_CONF_fs_defaultFS=hdfs://namenode:8020"
+networks:
+ vxlan110:
+  external: 
+   name: vxlan110 
