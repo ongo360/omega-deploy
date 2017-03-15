@@ -1,0 +1,13 @@
+version: '2'
+services:
+ flanneld:
+  image: quay.io/coreos/flannel:v0.7.5-amd64
+  network_mode: host
+  restart: always
+  privileged: true
+  volumes:
+   - /dev/net:/dev/net 
+   - /run/flannel:/run/flannel
+  environment:
+   - "affinity:container!=*flanneld*"
+  command: /opt/bin/flanneld --etcd-endpoints=${ETCD_URL} --ip-masq=false  --iface=${DEFAULT_IP}

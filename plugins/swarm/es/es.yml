@@ -1,0 +1,16 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:5
+    restart: always
+    networks:
+     mynetwork:
+      aliases:
+       es
+    command: -Enetwork.host=0.0.0.0 -Ediscovery.zen.minimum_master_nodes=1
+    environment:
+      - ES_JAVA_OPTS="-Des.path.conf=/etc/elasticsearch"
+networks:
+  mynetwork:
+    external:
+      name: ${NETWORK}
