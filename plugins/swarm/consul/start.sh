@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HOST_IP=$(ifconfig eth0 | grep inet | awk '{{print $2}}')
+LOCAL_IP=$(ifconfig eth0 | grep inet | awk '{{print $2}}')
+
+HOST_IP=${HOST_IP:-$LOCAL_IP}
 
 docker run -ti --rm \
    -v $(pwd):$(pwd) \
@@ -8,5 +10,6 @@ docker run -ti --rm \
    -w $(pwd) \
    -e DOCKER_HOST=unix:///var/run/docker.sock  \
    -e HOST_IP=${HOST_IP} \
+   -e LOCAL_IP=${LOCAL_IP} \
    docker/compose:1.9.0   \
    up -d $*
