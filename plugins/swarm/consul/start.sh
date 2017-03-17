@@ -11,5 +11,6 @@ docker run -ti --rm \
    -e DOCKER_HOST=unix:///var/run/docker.sock  \
    -e HOST_IP=${HOST_IP} \
    -e LOCAL_IP=${LOCAL_IP} \
+   -e ZK_URL=${ZK_URL} \
    docker/compose:1.9.0   \
    up -d $*
