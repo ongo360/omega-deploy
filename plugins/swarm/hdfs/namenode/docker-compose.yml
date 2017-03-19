@@ -21,7 +21,7 @@ services:
   depends_on:
    - namenode-holder
   volumes:
-   - /hadoop/dfs/name:/hadoop/dfs/name
+   - namenode-vol:/hadoop/dfs/name
   environment:
    - "CLUSTER_NAME=myhadoop"
    - "affinity:container!=*hdfs-namenode*"
@@ -29,3 +29,5 @@ networks:
  mynetwork:
   external: 
    name: ${NETWORK} 
+volumes:
+ namenode-vol:
