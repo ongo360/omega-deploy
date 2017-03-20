@@ -3,7 +3,8 @@ services:
   slave:
     image: andyshinn/dnsmasq:2.75 
     network_mode: host
-    cap-add: NET_ADMIN
+    cap_add: 
+     - NET_ADMIN
     restart: always
     command: -S /consul/${CONSUL_URL} --log-facility=-
     environment:
