@@ -28,4 +28,4 @@ while [[ $(docker ps 2>&1 1>/dev/null; echo $?) != 0 ]]; do
   sleep 1
 done
 
-docker login -u sadan@aliyun.com -p hell05a registry.cn-hangzhou.aliyuncs.com
+
