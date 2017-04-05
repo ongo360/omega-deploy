@@ -12,7 +12,7 @@ services:
     image: consul:0.7.5 
     network_mode: host
     restart: always
-    command:  consul agent -data-dir=/consul/data -advertise=${LOCAL_IP}   -join=${HOST_IP} -client=0.0.0.0 -ui
+    command:  consul agent -data-dir=/consul/data -advertise=${LOCAL_IP}   -join=${HOST_IP} -ui
     volumes:
       - agent-data:/consul/data
   dnsmasq:
@@ -21,7 +21,7 @@ services:
     cap_add: 
      - NET_ADMIN
     restart: always
-    command:  -S /consul/${HOST_IP}#8600 --log-facility=- 
+    command:  -S /consul/${LOCAL_IP}#8600 --log-facility=- 
   mesos-consul:
     image: ciscocloud/mesos-consul:v0.4.0 
     network_mode: host
